@@ -154,37 +154,19 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8 text-center">
-          <h2 class="mt-0">Bản ghi CNAME (Canonical name Record) hay còn gọi là Bản ghi bí danh</h2>
+          <h2 class="mt-0">Bản ghi MX - Mail Exchange Record</h2>
           <hr class="divider my-4">
-          <p class="text-muted mb-5">Bản ghi CNAME cho phép một server có thể có nhiều tên. Nói cách khác bản ghi CNAME cho phép nhiều tên miền cùng trỏ đến một địa chỉ IP cho trước.</p>
-          <p class="text-muted mb-5">Để có thể khai báo bản ghi CNAME, bắt buộc phải có bản ghi kiểu A để khai báo tên của máy. Tên miền được khai báo trong bản ghi kiểu A trỏ đến địa chỉ IP của máy được gọi là tên miền chính (canonical domain). Các tên miền khác muốn trỏ đến máy tính này phải được khai báo là bí danh của tên máy (alias domain).</p>
-          <p class="text-muted mb-5">Cú pháp của bản ghi CNAME: alias-domain IN CNAME canonical domain.</p>
-          <p class="text-muted mb-5">Ví dụ: Trỏ bản ghi CNAME cho tên miền blog.pavietnam.com.vn về pavietnam.com.vn. Tên miền blog.pavietnam.com.vn sẽ là tên bí danh của tên miền pavietnam.com.vn , hai tên miền kites.comvn và blog.pavietnam.com.vn sẽ cùng trỏ đến địa chỉ IP 202.92.4.44.</p>
-          <p class="text-muted mb-5">Có thể kết hợp bản ghi A với CNAME để trỏ tên miền. Trong những lần sau nếu có thay đổi IP server thì chỉ cần cập nhật bản ghi A cho pavietnam.com.vn khi đó bản ghi blog.kites.com.vn sẽ tự động trỏ sang IP mới.</p>
-          <p class="text-muted mb-5">Khai báo bản ghi CNAME ở tên miền pavietnam.com.vn: Tên bản ghi: blog - Loại bản ghi: CNAME - Giá trị bản ghi: pavietnam.com.vn</p>
-          <p class="text-muted mb-5">Sau khi cập nhật thành công ta kiểm tra ping tên miền blog.pavietnam.com.vn sẽ trùng IP với pavietnam.com.vn</p>
-      </div>
+          <p class="text-muted mb-5">Bản ghi MX dùng để khai báo máy chủ chuyển thư điện tử tới của một tên miền.</p>
+          <p class="text-muted mb-5">Ví dụ: để các thư điện tử có cấu trúc user@pavietnam.com.vn được gửi đến máy chủ chuyển thư điện tử có tên SMTP.MAILER.PAVIETNAM.VN , trên cơ sở dữ liệu của DNS cần khai báo bản ghi MX như sau:</p>
+          <p class="text-muted mb-5">Các thông số được khai báo trong bản ghi MX nêu trên gồm có:</p>
+          <p class="text-muted mb-5">pavietnam.com.vn: là tên miền được khai báo để sử dụng như địa chỉ thư điện tử.-smtp.mailer.pavietnam.vn: là tên của máy chủ chuyển tiếp thư điện tử.-5 : Là giá trị ưu tiên, giá trị ưu tiên có thể là một số nguyên bất kỳ từ 1 đến 255, nếu giá trị ưu tiên này càng nhỏ thì trạm chuyển tiếp thư điện tử được khai báo sau đó sẽ là trạm chuyển tiếp thư điện tử được chuyển đến đầu tiên.-Thì tất cả các thư điện tử gửi đến sẽ được ưu tiên gửi đến máy chủ SMTP.MAILER.pavietnam.VN trước.-Chỉ trong trường hợp máy chủ SMTP.MAILER.PAVIETNAM.VN không thể nhận thư thì các thư này mới được chuyển đến máy chủ thứ STORE.MAILER.PAVIETNAM.VN.</p>
+          <p class="text-muted mb-5">@ MX smtp.mailler.pavietnam.vn<br>
+                                     @ MX st
+          </p>
+        </div>
       </div>
     </div>
   </section>   
-  
-    <!-- Masthead -->
-  <header class="masthead"  id="contact">
-    <div class="container h-100">
-      <div class="row h-100 align-items-center justify-content-center text-center">
-        <div class="col-lg-10 align-self-end">
-          <h1 class="text-uppercase text-white font-weight-bold">Bản ghi MX - Mail Exchange Record</h1>
-          <hr class="divider my-4">
-        </div>
-        <div class="col-lg-8 align-self-baseline">
-          <p class="text-white-75 font-weight-light mb-5">Bản ghi MX dùng để khai báo máy chủ chuyển thư điện tử tới của một tên miền.</p>
-          <p class="text-white-75 font-weight-light mb-5">Ví dụ: để các thư điện tử có cấu trúc user@pavietnam.com.vn được gửi đến máy chủ chuyển thư điện tử có tên SMTP.MAILER.pavietnam.VN , trên cơ sở dữ liệu của DNS cần khai báo bản ghi MX như sau:</p>
-          <p class="text-white-75 font-weight-light mb-5">Các thông số được khai báo trong bản ghi MX nêu trên gồm có:</p>
-          <p class="text-white-75 font-weight-light mb-5">pavietnam.com.vn: là tên miền được khai báo để sử dụng như địa chỉ thư điện tử.-smtp.mailer.pavietnam.vn: là tên của máy chủ chuyển tiếp thư điện tử.-5 : Là giá trị ưu tiên, giá trị ưu tiên có thể là một số nguyên bất kỳ từ 1 đến 255, nếu giá trị ưu tiên này càng nhỏ thì trạm chuyển tiếp thư điện tử được khai báo sau đó sẽ là trạm chuyển tiếp thư điện tử được chuyển đến đầu tiên.-Thì tất cả các thư điện tử gửi đến sẽ được ưu tiên gửi đến máy chủ SMTP.MAILER.pavietnam.VN trước.-Chỉ trong trường hợp máy chủ SMTP.MAILER.pavietnam.VN không thể nhận thư thì các thư này mới được chuyển đến máy chủ thứ STORE.MAILER.pavietnam.VN.</p>                               
-        </div>
-      </div>
-    </div>
-  </header>
   
       <!-- Masthead -->
   <header class="masthead"  id="park">
